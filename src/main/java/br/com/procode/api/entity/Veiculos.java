@@ -13,8 +13,8 @@ import jakarta.persistence.Id;
 @Data
 public class Veiculos {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String marca;
     private String modelo;
@@ -78,6 +78,14 @@ public class Veiculos {
 
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
 
