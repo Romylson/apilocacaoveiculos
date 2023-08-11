@@ -13,26 +13,26 @@ public class VeiculosService {
     @Autowired
     private VeiculosRepository veiculosRepository;
 
-    public List<Veiculos> listarTodos() {
+    public List<Veiculos> listarTodosVeiculos() {
         return veiculosRepository.findAll();
     }
 
-    public Veiculos buscarPorId(Long id) {
+    public Veiculos buscarVeiculoPorId(Long id) {
         return veiculosRepository.findById(id).orElse(null);
     }
 
-    public Veiculos inserir(Veiculos veiculo) {
+    public Veiculos inserirVeiculo(Veiculos veiculo) {
         if (veiculosRepository.findByPlaca(veiculo.getPlaca()) != null) {
             throw new IllegalArgumentException("Já existe um veículo com a mesma placa.");
         }
         return veiculosRepository.save(veiculo);
     }
 
-    public Veiculos atualizar(Veiculos veiculo) {
+    public Veiculos atualizarVeiculo(Veiculos veiculo) {
         return veiculosRepository.save(veiculo);
     }
 
-    public void deletar(Long id) {
+    public void deletarVeiculo(Long id) {
         veiculosRepository.deleteById(id);
     }
 }
