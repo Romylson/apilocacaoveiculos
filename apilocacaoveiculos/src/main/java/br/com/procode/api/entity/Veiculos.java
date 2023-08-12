@@ -8,9 +8,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Data
+@Table(name="TB_VEICULOS")
 public class Veiculos {
 
 	@Id
@@ -23,7 +25,15 @@ public class Veiculos {
     private String placa;
     private boolean disponivel = true;
 
-    public BigDecimal getValorDiariaPorTipo() {
+    public TipoVeiculo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoVeiculo tipo) {
+		this.tipo = tipo;
+	}
+
+	public BigDecimal getValorDiariaPorTipo() {
         switch (tipo) {
             case PASSEIO:
                 return new BigDecimal("70.00");
@@ -81,7 +91,7 @@ public class Veiculos {
 	}
 
 	public Long getId() {
-		return id;
+		return id;                                                                                
 	}
 
 	public void setId(Long id) {
